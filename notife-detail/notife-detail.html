@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{notife.quoi}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="notife-profile" text-center #profilePic [style.background-image]="'url(' + notife.profilePic + ')'" *ngIf="notife.profilePic">
+  </div>
+
+  <div class="notife-detail" padding>
+    <h5 class="centerColorBlack" >{{notife.quoi}}</h5>
+
+    <p class="center">{{notife.quand | date: 'EEE dd MMM' : 'fr-FR'}}</p>
+    <p class="centerColorBlack">{{notife.titre}}</p>
+   <div class="contour">
+    <p class="centerColorBlack">{{notife.adresse}}</p>
+    <p class="centerColorBlack">{{notife.commune}} - {{notife.codePostal}}</p>
+   </div>
+        <p class="centerColorBlue">{{notife.email}}</p>
+        <p class="centerColorBlue">{{notife.horaire}}</p>
+       <div class="contour">
+        <h6 class="centerColorBlack">{{notife.infoPra}}</h6>
+        <p class="center">{{notife.infosSupp}}</p>
+       </div>
+        
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-buttons end>
+    <button ion-button outline (click)="dismissModal()" >Retour</button>
+  </ion-buttons>
+  <ion-buttons end>
+    <button 
+        ion-button 
+        full 
+        color="ouyassagreen"
+        (click)="addToPref(notife)"
+        (click)="changerStatusContact()"
+        > Ajouter à vos favoris </button>
+      </ion-buttons>
+</ion-footer>

@@ -1,0 +1,32 @@
+page-notife-detail {
+  .notife-profile {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 250px;
+  }
+
+  .notife-detail {
+    width: 100%;
+    background: white;
+    position: absolute;
+  }
+  .center {
+    text-align: center;
+    margin: 2px;
+  }
+  .centerColorBlack {
+    color: black;
+    text-align: center;
+    margin: 2px;
+  }
+  .centerColorBlue {
+    color: #5981BD;
+    text-align: center;
+    margin: 2px;
+  }
+  
+  .contour {
+    margin: 12px;
+  }
+}
