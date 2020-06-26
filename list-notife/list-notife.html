@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="ouyassared">
+    <ion-buttons>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title end>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Code Postal" 
+                   (ionInput)="filterNotifeData($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ng-container  *ngFor="let notife of notifesList; let i = index" width-25>
+      <ng-container *ngIf="notife.statusNotife === 'Accepter'">
+
+      <button ion-item (click)="onLoadNotife(i)">
+        <ion-avatar item-start *ngIf="notife.profilePic">
+          <img [src]="notife.profilePic" />
+        </ion-avatar>
+        <h4 class="colorRed">{{notife.quoi}}</h4>
+        <p >{{notife.titre}} </p>
+        <p locale="fr-FR">{{notife.quand | date: 'EEE dd MMM'}} - {{notife.horaire}}</p>
+        <p>{{notife.commune}} - {{notife.codePostal}}</p>
+      </button>
+
+      <ion-item-options>
+
+
+        <button ion-button color="danger" (click)="deleteNotife(notife)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ng-container>
+  </ng-container>
+</ion-list>
+</ion-content>
