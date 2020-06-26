@@ -1,0 +1,43 @@
+page-auth {
+    .toolbar-background {
+      background: transparent;
+      border-color: transparent;
+    }
+  
+    .slide-zoom {
+      height: 100%;
+    }
+  
+    .slide-title {
+      margin-top: 0px;
+      margin-block-end: 0px;
+    }
+    .ion-item {
+        text-align: center;
+    }
+  
+    .slide-image {
+      max-height: 90px;
+      max-width: 90px;
+      margin-left: 43.5%;
+      margin-block-end: 0px;
+  
+    }
+  
+    b {
+      font-weight: 500;
+    }
+  
+    p {
+      padding: 0 40px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #60646B;
+  
+      b {
+        color: #000000;
+      }
+    }
+  
+  }
+  

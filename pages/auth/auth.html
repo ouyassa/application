@@ -1,0 +1,45 @@
+<ion-header>
+      <ion-navbar  color="ouyassared">
+        <ion-buttons>
+          <button ion-button icon-only (click)="onToggleMenu()">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title end *ngIf="mode === 'new'">Nouvel utilisateur</ion-title>
+        <ion-title end *ngIf="mode === 'connect'">Connexion</ion-title>
+      </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <form [formGroup]="authForm">
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Adresse mail</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Mot de passe</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-card color="ouyassared" *ngIf="mode === 'new'" (click)="onConnect()" >Déja inscrit par ici ... </ion-card>
+        <ion-card color="ouyassared" *ngIf="mode === 'connect'" (click)="onNew()" >Créer un nouvel utilisateur ici</ion-card>
+   
+        <button ion-button full color="ouyassagreen" *ngIf="mode === 'new'" (click)="onSubmitForm()">Créer un compte</button>
+        <button ion-button full color="ouyassagreen" *ngIf="mode === 'connect'" (click)="onSubmitForm()">connexion</button>
+        <span ion-text color="danger">{{ errorMessage }}</span>
+    </form>
+    
+          <ion-card>
+            <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+              <ion-slide *ngFor="let slide of slides">
+                <img [src]="slide.image" class="slide-image" />
+                <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+                <h5 class="slide-title" [innerHTML]="slide.title1"></h5>
+                <h3 class="slide-title" [innerHTML]="slide.title2"></h3>
+                <p [innerHTML]="slide.description"></p>
+              </ion-slide>
+            </ion-slides>
+          </ion-card>
+              
+  </ion-content>
